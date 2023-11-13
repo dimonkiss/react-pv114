@@ -40,7 +40,12 @@ const pages = [
   {
     itemName: 'Counter',
     path: '/counter'
+  },
+  {
+    itemName: 'Tasks',
+    path:'/mytasks'
   }
+
 
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
