@@ -12,8 +12,13 @@ export default function Counter(){
             <h2>Counter Manager</h2>
             <h3>{title} {count}</h3>
             <Stack>
-                <Button  variant="contained" onClick={increment}>Increment</Button>
-                <Button variant="contained" color="success" onClick={decrement}>Decrement</Button>
+                <Button  variant="contained" onClick={()=>increment(1)}>(Increment+1)</Button>
+                <Button variant="contained" color="success" onClick={()=>decrement(1)}>(Decrement-1)</Button>
+                <Button variant="contained"  color="error" onClick={reset}>Clear</Button>
+            </Stack>
+            <Stack>
+                <Button  variant="contained" onClick={()=>increment(2)}>Increment(+2)</Button>
+                <Button variant="contained" color="success" onClick={()=>decrement(2)}>Decrement(-2)</Button>
                 <Button variant="contained"  color="error" onClick={reset}>Clear</Button>
             </Stack>
         </Stack>

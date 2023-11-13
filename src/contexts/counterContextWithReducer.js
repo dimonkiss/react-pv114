@@ -31,7 +31,9 @@ export const COUNTER_ACTION_TYPES={
 };
 /*
 const action ={
-    type: 'INCREMENT'
+    type: 'INCREMENT',
+    payload: ....   // step
+
 }
 */
 
@@ -40,12 +42,12 @@ export const counterReducer = (state = INITIAL_STATE, action) => {
         case COUNTER_ACTION_TYPES.INCREMENT:
             return {
                 ...state, //copy all members from state
-                count: state.count + 1,
+                count: state.count + action.step,
             };
         case COUNTER_ACTION_TYPES.DECREMENT:
             return {
                 ...state,
-                count: state.count - 1
+                count: state.count - action.step
             };
         case COUNTER_ACTION_TYPES.RESET:
             return { ...state, count: 0 }
@@ -58,8 +60,8 @@ export const counterReducer = (state = INITIAL_STATE, action) => {
 export default function CounterProvider(props) {
     const [{ count, title }, dispatch] = useReducer(counterReducer, INITIAL_STATE);
     //action realizations
-    const decrement = () => { dispatch({ type: COUNTER_ACTION_TYPES.DECREMENT }); };
-    const increment = () => { dispatch({ type: COUNTER_ACTION_TYPES.INCREMENT }); };
+    const decrement = (step) => { dispatch({ type: COUNTER_ACTION_TYPES.DECREMENT,step:step }); };
+    const increment = (step) => { dispatch({ type: COUNTER_ACTION_TYPES.INCREMENT, step:step }); };
     const reset = () => { dispatch({ type: COUNTER_ACTION_TYPES.RESET }); };
 
     const values = { count, title, decrement, increment, reset };
