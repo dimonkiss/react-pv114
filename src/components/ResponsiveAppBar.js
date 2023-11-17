@@ -45,6 +45,10 @@ const pages = [
     path: '/counter'
   },
   {
+    itemName: 'CounterReduxToolkit',
+    path: '/counter_redux_toolkit'
+  },
+  {
     itemName: 'Tasks',
     path:'/mytasks'
   }

@@ -19,7 +19,7 @@ import { AuthContext } from './contexts/authContext';
 import Counter from './components/Counter';
 import Todos from './components/todo/todo.reducer';
 // import UsersList from './components/users/UsersList';
-
+import CounterReduxToolkit from './components/CounterReduxToolkit';
 
 
 function App() {
@@ -54,6 +54,7 @@ function App() {
               <Route path="/users" element={<UsersList />} />
               <Route path="/login" element={<Login />} />
               <Route path="/counter" element={<Counter />} />
+              <Route path="/counter_redux_toolkit" element={<CounterReduxToolkit />} />
               <Route path="/mytasks" element={<Todos/>} />
               {/* <Route path="/books" element={<h3>Book list</h3>}>
               <Route path=":id" element={<h3>Book 1</h3>}/>

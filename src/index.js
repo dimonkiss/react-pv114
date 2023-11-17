@@ -7,11 +7,13 @@ import AuthProvider from './contexts/authContext';
 // import CounterProvider from './contexts/counterContext';
 import CounterProvider from './contexts/counterContextWithReducer';
 import { Provider } from "react-redux";
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
 import rootReducer from './store/root.reducer';
-
+import {store} from './storeReduxToolkit/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const store = createStore(rootReducer);
+//redux-react without toolkit
+// const store = createStore(rootReducer);
+
 root.render(
   <>
     <React.StrictMode>
