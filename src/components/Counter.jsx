@@ -2,7 +2,7 @@ import { Button, Stack } from "@mui/material"
 import { useContext } from "react"
 import { CounterContext } from "../contexts/counterContextWithReducer"
 import Box from "@mui/material";
-import { decrement as dec, increment as inc, reset as res, selectCount } from "../store/reducers/counterReducer";
+import { decrement as dec, increment as inc, reset as res, incrementbyn, selectCount } from "../store/reducers/counterReducer";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Counter() {
@@ -16,6 +16,7 @@ export default function Counter() {
     // const plus = () => dispatch(inc());
     const minus = () => dispatch(dec());
     const clear = () => dispatch(res());
+    
 
     return (
         <>
@@ -41,6 +42,7 @@ export default function Counter() {
                     <Button variant="contained"onClick={plus}>Increment</Button>
                     <Button variant="contained" color="success" onClick={minus}>Decrement</Button>
                     <Button variant="contained" color="error" onClick={clear}>Reset</Button>
+                    <Button variant="contained"  onClick={ () => dispatch(incrementbyn(2))}>Increment on 2</Button>
 
                 </Stack>
             </Stack> 
