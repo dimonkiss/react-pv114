@@ -14,7 +14,10 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/authContext';
-import { CounterContext } from '../contexts/counterContext';
+// import { CounterContext } from '../contexts/counterContext';
+import { CounterContext } from "../contexts/counterContextWithReducer"
+import { useSelector } from 'react-redux';
+import { selectCount } from '../store/reducers/counterReducer';
 
 const pages = [
   {
@@ -56,6 +59,9 @@ function ResponsiveAppBar() {
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  // const countByRedux=useSelector((store) => store.counter.count);
+  const countByRedux=useSelector(selectCount);
+  
   const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
@@ -172,7 +178,9 @@ function ResponsiveAppBar() {
               </Link>
             ))}
           </Box>
+          {/* working state Management state */}
           <h4>Counter: {count} </h4>
+          <h4> CounterReact-Redux: {countByRedux} </h4>
           <h6>{userName}</h6>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

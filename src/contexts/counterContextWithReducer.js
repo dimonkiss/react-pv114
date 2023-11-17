@@ -38,6 +38,7 @@ const action ={
 */
 
 export const counterReducer = (state = INITIAL_STATE, action) => {
+    // const {type, step}=action;
     switch (action.type) {
         case COUNTER_ACTION_TYPES.INCREMENT:
             return {

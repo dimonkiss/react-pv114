@@ -64,12 +64,13 @@ function App() {
             </Routes>
 
           </main>
-          <aside>
+           <aside>
             <Routes>
               <Route path="/about" element={<AboutShort />} />
               {/* <Route path="*" element={<NotFound/>}/> */}
             </Routes>
           </aside>
+          
         </div>
       </div>
       //</AuthProvaider>

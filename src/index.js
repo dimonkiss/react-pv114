@@ -6,22 +6,27 @@ import { BrowserRouter as Router } from "react-router-dom";
 import AuthProvider from './contexts/authContext';
 // import CounterProvider from './contexts/counterContext';
 import CounterProvider from './contexts/counterContextWithReducer';
+import { Provider } from "react-redux";
+import { createStore } from 'redux';
+import rootReducer from './store/root.reducer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const store = createStore(rootReducer);
 root.render(
   <>
     <React.StrictMode>
       {/* instaling =>     npm i react-router-dom */}
       {/* <BrowserRouter> */}
       <Router>
-      {/* <ThemeProvider> */}
-      
-      <CounterProvider>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
-        </CounterProvider>
-        {/* </ThemeProvider> */}
+        {/* <ThemeProvider> */}
+        <Provider store={store}>
+          <CounterProvider>   {/* using useContext */}
+            <AuthProvider>
+              <App />
+            </AuthProvider>
+          </CounterProvider>
+          {/* </ThemeProvider> */}
+        </Provider>
       </Router>
       {/* </BrowserRouter> */}
     </React.StrictMode>
