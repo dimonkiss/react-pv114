@@ -1,4 +1,4 @@
-const INITIAL_STATE = {
+const COUNT_DATA = {
   count: 0,
   name: "no name",
 };
@@ -9,17 +9,22 @@ const INITIAL_STATE = {
 //    return {new state ...}
 //}
 
-export const counterReducer = (state = INITIAL_STATE, action) => {
+const incrementCount=(state)=>{
+    return {
+        ...state, // copy all members from state
+        count: state.count + 1,
+      };
+}
+
+
+export const counterReducer = (state = COUNT_DATA, action) => {
   // type - type of the action
   // payload - data to do the aciton
   const { type, payload } = action;
 
   switch (type) {
     case COUNTER_ACTION_TYPES.INCREMENT:
-      return {
-        ...state, // copy all members from state
-        count: state.count + 1,
-      };
+      return incrementCount(state);
     case COUNTER_ACTION_TYPES.DECREMENT:
       return { ...state, count: state.count - 1 };
     case COUNTER_ACTION_TYPES.RESET:
